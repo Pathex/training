@@ -5,4 +5,4 @@
 
 docker-compose build training-s
 
-docker-compose run training-s
+docker-compose up -d training-s
