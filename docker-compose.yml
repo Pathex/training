@@ -1,0 +1,76 @@
+version: '2'
+services:
+
+################################################################################
+################################## databases ###################################
+################################################################################
+
+  training-postgres-s:
+    image: postgres:9.5.5
+    container_name: training-postgres-c
+    env_file:
+      - ./env_lists/env.list
+    volumes:
+      - training-postgres-data-v:/var/lib/postgresql/data
+    networks:
+      - "training-n"
+
+################################################################################
+######################### single customer container ############################
+################################################################################
+
+  training-s:
+    image: training:dev0.0.1
+    container_name: training-c
+    build:
+      context: .
+      args:
+        - mix_env=dev
+    command: mix phoenix.server
+    ports:
+      - "8080:8000"
+    volumes:
+      - .:/app
+    # depends_on:
+    #   - training-postgres-s
+    networks:
+      - "training-n"
+
+################################################################################
+########################## test related containers #############################
+################################################################################
+
+  training-postgres-test-s:
+    image: postgres:9.5.5
+    container_name: training-postgres-test-c
+    env_file:
+      - ./env_lists/env-test.list
+    volumes:
+      - training-postgres-data-test-v:/var/lib/postgresql/data
+    networks:
+      - "training-n"
+
+  training-test-s:
+    image: training-test:test0.0.1
+    container_name: training-test-c
+    build:
+      dockerfile: Dockerfile-test
+      context: .
+      args:
+        - mix_env=test
+    command: mix test
+    environment:
+      - MIX_ENV=test
+    volumes:
+      - .:/app
+    # depends_on:
+    #   - training-postgres-test-s
+    networks:
+      - "training-n"
+
+volumes:
+  training-postgres-data-test-v :
+  training-postgres-data-v :
+
+networks:
+  training-n:

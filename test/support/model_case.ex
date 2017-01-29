@@ -18,19 +18,19 @@ defmodule Training.ModelCase do
     quote do
       alias Training.Repo
 
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-      import Training.ModelCase
+      # import Ecto
+      # import Ecto.Changeset
+      # import Ecto.Query
+      # import Training.ModelCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Training.Repo)
+    # :ok = Ecto.Adapters.SQL.Sandbox.checkout(Training.Repo)
 
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Training.Repo, {:shared, self()})
-    end
+    # unless tags[:async] do
+    #   Ecto.Adapters.SQL.Sandbox.mode(Training.Repo, {:shared, self()})
+    # end
 
     :ok
   end

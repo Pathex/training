@@ -20,10 +20,10 @@ defmodule Training.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Training.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
+      # alias Training.Repo
+      # import Ecto
+      # import Ecto.Changeset
+      # import Ecto.Query
 
       import Training.Router.Helpers
 
@@ -33,11 +33,11 @@ defmodule Training.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Training.Repo)
+    # :ok = Ecto.Adapters.SQL.Sandbox.checkout(Training.Repo)
 
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Training.Repo, {:shared, self()})
-    end
+    # unless tags[:async] do
+    #   Ecto.Adapters.SQL.Sandbox.mode(Training.Repo, {:shared, self()})
+    # end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
