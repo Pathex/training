@@ -1,35 +1,36 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <form action='http://google.de/search' method='GET'><input name='q' type='text'/></form>
+  <h2><%= gettext "Wilkommen zu %{name}", name: "Pahx!" %></h2>
+  <p class="lead">Einer Webseite die keinen Sinn macht<br />und keinen Nutzen hat.</p>
 </div>
 
 <div class="row marketing">
   <div class="col-lg-6">
-    <h4>Resources</h4>
+    <h4>Meine Lieblings-Webseiten</h4>
     <ul>
       <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
+        <a href="https://www.whatsapp.com/">Lust zu chatten?</a>
       </li>
       <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
+        <a href="https://youtube.de">Wer braucht schon die Gloze</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+        <a href="http://www.testedich.de/"> Lustige Tests </a>
       </li>
     </ul>
   </div>
 
   <div class="col-lg-6">
-    <h4>Help</h4>
+    <h4>Coole Spiele</h4>
     <ul>
       <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
+        <a href="https://playoverwatch.com/de-de/">Overwatch </a>
       </li>
       <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
+        <a href="https://minecraft.net">Minecraft</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
+        <a href="http://de.bigpoint.com/drakensang-online/">drakensang</a>
       </li>
     </ul>
   </div>
